@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+  https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- first we are creating object of simCard then after that we can call the object of mobiles-->
+    <bean id="airtel"
+          class="SetterInjectionPackage.Airtel">
+
+    </bean>
+    <bean id="jio"
+          class="SetterInjectionPackage.Jio">
+
+    </bean>
+    <bean id="apple"
+          class="SetterInjectionPackage.Apple">
+        <!-- here we must use name according to name of interface but reference must be the id which is used to uniquely identify the simCard-->
+        <!-- for performing setter injection we have to use property tag with arguments name(Interface name) ref(idName) -->
+        <property name="SimCard" ref="jio"></property>
+        <!-- additional collaborators and configuration for this bean go here -->
+    </bean>
+    <bean id="samsung"
+          class="SetterInjectionPackage.Samsung">
+        <!-- here we must use name according to name of interface but reference must be the id which is used to uniquely identify the simCard-->
+        <property name="SimCard" ref="airtel"></property>
+        <!-- additional collaborators and configuration for this bean go here -->
+    </bean>
+    <!-- more bean definitions for data access objects go here -->
+</beans>
